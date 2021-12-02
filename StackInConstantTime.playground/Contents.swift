@@ -2,7 +2,7 @@
 
 import Foundation
 
-class Stack {
+class MyStack {
     
     // Key is the index
     var storage : [Int: Any] = [Int: Any]()
@@ -16,8 +16,8 @@ class Stack {
     }
     
     public func pop() -> Any? {
-        if let value = storage[storage.count] {
-            storage.removeValue(forKey: storage.count)
+        if let value = storage[storage.count - 1] {
+            storage.removeValue(forKey: storage.count - 1)
             return value
         }
         else {
@@ -26,16 +26,35 @@ class Stack {
     }
     
     public func peek() -> Any? {
-        if let value = storage[storage.count] {
+        if let value = storage[storage.count - 1] {
             return value
         }
         else {
             return nil
         }
     }
+    
+    public func printContents() {
+        print("Stack contents: \n" + storage.debugDescription)
+    }
 }
 
-var stack = Stack()
+// Demo
+
+var stack = MyStack()
+
+stack.push(value: 10)
+stack.push(value: 5)
+
+stack.printContents()
+
+var value11 = stack.pop()
+
+stack.printContents()
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@ import Foundation
 class MyStack {
     
     // Key is the index
-    var storage : [Int: Any] = [Int: Any]()
+    private var storage : [Int: Any] = [Int: Any]()
     
     public init() {
         
@@ -35,11 +35,11 @@ class MyStack {
     }
     
     public func printContents() {
-        print("Stack contents: \n" + storage.debugDescription)
+        print("Stack contents: \n" + storage.description)
     }
 }
 
-// Demo
+// Tests
 
 var stack = MyStack()
 
@@ -48,9 +48,28 @@ stack.push(value: 5)
 
 stack.printContents()
 
-var value11 = stack.pop()
+stack.pop()
 
 stack.printContents()
+
+stack.pop()
+
+stack.printContents()
+
+stack.push(value: 1)
+stack.push(value: 2)
+stack.push(value: 5)
+
+stack.printContents()
+
+stack.pop()
+
+stack.printContents()
+
+var topmostValue = stack.peek()
+
+
+
 
 
 

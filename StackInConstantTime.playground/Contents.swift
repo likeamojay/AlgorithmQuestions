@@ -7,10 +7,6 @@ class MyStack {
     // Key is the index
     private var storage : [Int: Any] = [Int: Any]()
     
-    public init() {
-        
-    }
-    
     public func push(value : Any) {
         storage[storage.count] = value
     }

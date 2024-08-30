@@ -16,18 +16,14 @@ class MyStack {
             storage.removeValue(forKey: storage.count - 1)
             return value
         }
-        else {
-            return nil
-        }
+        return nil
     }
     
     public func peek() -> Any? {
         if let value = storage[storage.count - 1] {
             return value
         }
-        else {
-            return nil
-        }
+        return nil
     }
     
     public func printContents() {

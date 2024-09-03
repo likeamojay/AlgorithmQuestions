@@ -16,11 +16,15 @@ class JLNotificationCenter {
     @discardableResult
     func post(name: String) -> Any? {
         if let function = self.notifications[name] {
-            function()
+            return function()
         } else {
             print(self.notifications.debugDescription)
         }
         return nil
+    }
+    
+    func removeObserver(name: String) {
+        self.notifications.removeValue(forKey: name)
     }
 }
 
@@ -29,10 +33,11 @@ class JLNotificationCenter {
 let kNotificationHello = "hello"
 
 func hello() {
-    print("Hello from function hello()")
+   print("Hello from function hello()")
 }
+
+
 
 JLNotificationCenter.shared.addObserver(name: kNotificationHello, event: hello)
 
 JLNotificationCenter.shared.post(name: kNotificationHello)
-
